@@ -41,7 +41,7 @@ class SpreadsheetService
     transaction = @spreadsheet.worksheets[1]
 
     last_row = transaction.num_rows + 1
-    transaction[last_row, 2] = Date.today.to_s # Date
+    transaction[last_row, 2] = Time.zone.today.to_s
     transaction[last_row, 3] = @expense[:amount]
     transaction[last_row, 4] = @expense[:description]
     transaction[last_row, 5] = @expense[:category]
