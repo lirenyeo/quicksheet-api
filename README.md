@@ -21,4 +21,4 @@ This API endpoint takes 3 params: `amount`, `description` and `category`, and in
 [Googlesheets Template](https://drive.google.com/open?id=1tU1mPUYVNNa1wj4Yl3w9tjxNrhsjmNNMUxStLbDxbpk)
 
 * I have also created a hybrid mobile app (Ionic) that implements this API endpoint:
-[Ionic Budget App](https://github.com/lirenyeo/ionic-budget-app)
+[Quicksheets Mobile App](https://github.com/lirenyeo/quicksheets-mobile)
