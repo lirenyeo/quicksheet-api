@@ -21,7 +21,7 @@ class Api::V1::ExpensesController < ApplicationController
   end
 
   def authentication
-    if request_params[:api_token].nil? || ENV['API_TOKEN'] != request_params[:api_token]
+    if request_params[:api_token].nil? || ENV['api_token'] != request_params[:api_token]
       render json: { error: "Invalid api token" }, status: :forbidden
     end
   end
