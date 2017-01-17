@@ -1,5 +1,6 @@
 class Api::V1::ExpensesController < ApplicationController
-
+  before_action :authentication
+  
   def create
     auth = SessionService.new
     session = auth.validate
@@ -16,6 +17,12 @@ class Api::V1::ExpensesController < ApplicationController
 
   private
   def request_params
-    params.permit(:description, :amount, :category)
+    params.permit(:description, :amount, :category, :api_token)
+  end
+
+  def authentication
+    if request_params[:api_token].nil? || ENV['API_TOKEN'] != request_params[:api_token]
+      render json: { error: "Invalid api token" }, status: :forbidden
+    end
   end
 end
