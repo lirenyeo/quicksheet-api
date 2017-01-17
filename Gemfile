@@ -9,6 +9,7 @@ gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 gem 'google_drive'
 gem 'figaro'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri

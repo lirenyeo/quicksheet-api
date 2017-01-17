@@ -104,6 +104,7 @@ GEM
     public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.1)
@@ -171,6 +172,7 @@ DEPENDENCIES
   google_drive
   listen (~> 3.0.5)
   puma (~> 3.0)
+  rack-cors
   rails (~> 5.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
