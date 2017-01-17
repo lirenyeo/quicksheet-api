@@ -1,24 +1,9 @@
-# README
+# QuickSheet API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API endpoint to insert values into google budgeting spreadsheets. Takes 3 params: amount, description and category.
 
-Things you may want to cover:
+## How It Works
 
-* Ruby version
+* Determine today's month, go to the spreadsheet of the month and insert amount, description and category of your expense.
+* If spreadsheet does not exist, create a new one based on current month, and update the starting balance based on previous-month-spreadsheet.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
