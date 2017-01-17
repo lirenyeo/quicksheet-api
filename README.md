@@ -1,4 +1,4 @@
-# QuickSheet API
+# QuickSheets API
 
 Frequent data input to google spreadsheets with native mobile app is troublesome. This API is meant for quick data input to personal google spreadsheets such as budgeting/finance spreadsheets.
 
@@ -22,4 +22,3 @@ This API endpoint takes 3 params: `amount`, `description` and `category`, and in
 
 * I have also created a hybrid mobile app (Ionic) that implements this API endpoint:
 [Ionic Budget App](https://github.com/lirenyeo/ionic-budget-app)
-
