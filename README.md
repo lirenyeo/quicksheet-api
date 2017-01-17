@@ -15,6 +15,6 @@ API endpoint to insert values into google budgeting spreadsheets. Takes 3 params
 * This API is designed based on the usage of the following template:
 [Googlesheets Template](https://drive.google.com/open?id=1tU1mPUYVNNa1wj4Yl3w9tjxNrhsjmNNMUxStLbDxbpk)
 
-* I have also created a hybrid mobile app (Ionic) that implements this API endpoint.
+* I have also created a hybrid mobile app (Ionic) that implements this API endpoint:
 [Ionic Budget App](https://github.com/lirenyeo/ionic-budget-app)
 
