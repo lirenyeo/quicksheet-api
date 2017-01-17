@@ -4,8 +4,8 @@ class SpreadsheetService
   def initialize(session, expense)
     @session = session
     @expense = expense
-    @current_month = Date::MONTHNAMES[Date.today.month]
-    @current_year = Date.today.year.to_s
+    @current_month = Date::MONTHNAMES[Date.today.in_time_zone.month]
+    @current_year = Date.today.in_time_zone.year
     @spreadsheet_title = "budget-#{@current_month[0..2].downcase}-#{@current_year[2..3]}"
     # @spreadsheet_title = "testing12"
     @template_title = "budget-template"
