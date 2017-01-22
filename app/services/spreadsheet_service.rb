@@ -1,9 +1,9 @@
 class SpreadsheetService
   attr_reader :spreadsheet
 
-  def initialize(session, expense)
+  def initialize(session, params)
     @session = session
-    @expense = expense
+    @params = params
     @current_month = Date::MONTHNAMES[Date.today.in_time_zone.month]
     @current_year = Date.today.in_time_zone.year.to_s
     @spreadsheet_title = "budget-#{@current_month[0..2].downcase}-#{@current_year[2..3]}"
@@ -14,7 +14,25 @@ class SpreadsheetService
 
   def add_expense
     create_new_spreadsheet if @spreadsheet.nil?
-    save_transaction
+    save_transaction("expense")
+  end
+
+  def add_income
+    create_new_spreadsheet if @spreadsheet.nil?
+    save_transaction("income")
+  end
+
+  def read_data
+    summary_sheet = @spreadsheet.worksheets[0]
+
+    return {
+      json: {
+        actual_income: summary_sheet[16, 9],
+        actual_expense: summary_sheet[16, 3],
+        monthly_balance: summary_sheet[9, 9],
+        final_balance: summary_sheet[11, 5]
+        }, status: :ok
+    }
   end
   
   private
@@ -37,14 +55,21 @@ class SpreadsheetService
     worksheet_summary.save
   end
 
-  def save_transaction
+  def save_transaction(type)
+    start_col = 
+      if type == "expense"
+        2
+      elsif type == "income"
+        7
+      end
+
     transaction = @spreadsheet.worksheets[1]
 
-    last_row = transaction.num_rows + 1
-    transaction[last_row, 2] = Time.zone.today.to_s
-    transaction[last_row, 3] = @expense[:amount]
-    transaction[last_row, 4] = @expense[:description]
-    transaction[last_row, 5] = @expense[:category]
+    last_row = transaction.num_rows_at(start_col) + 1
+    transaction[last_row, start_col] = Time.zone.today.to_s
+    transaction[last_row, start_col + 1] = @params[:amount]
+    transaction[last_row, start_col + 2] = @params[:description]
+    transaction[last_row, start_col + 3] = @params[:category]
     transaction.save
   end
 
