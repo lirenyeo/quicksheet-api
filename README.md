@@ -4,7 +4,7 @@ Frequent data input to google spreadsheets with native mobile app is troublesome
 
 This API has 3 endpoints: `expense`, `income` and `data`.
 
-`expense` and `income` endpoints take 3 params: `amount`, `description` and `category`, and insert these values into your budgeting spreadsheets.
+`expense` and `income` take 3 params: `amount`, `description` and `category`, and insert these values into your budgeting spreadsheets.
 
 GET `data` retrieves the following values: `actual_income`, `actual_expense`, `monthly_balance` and `total_balance`.
 
@@ -21,7 +21,7 @@ GET `data` retrieves the following values: `actual_income`, `actual_expense`, `m
  
 ## Disclaimer
 
-* Currently all rows/columns numbers are hardcoded to accustom the googlesheets budgeting template as shown below.
+* Currently all rows/columns numbers and spreadsheets names are hardcoded to accustom the googlesheets budgeting template as shown below.
 
 * I intend to release V2 with database which allows these settings to be modified and stored.
 
