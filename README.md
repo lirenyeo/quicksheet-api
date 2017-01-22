@@ -1,8 +1,12 @@
 # QuickSheets API
 
-Frequent data input to google spreadsheets with native mobile app is troublesome. This API is meant for quick data input to personal google spreadsheets such as budgeting/finance spreadsheets.
+Frequent data input to google spreadsheets with native mobile app is troublesome. This API is meant for quick data input to personal google spreadsheets such as budgeting/finance spreadsheets, it also allows data reading from sheets.
 
-This API endpoint takes 3 params: `amount`, `description` and `category`, and insert these values into your budgeting spreadsheets.
+This API has 3 endpoints: `expense`, `income` and `data`.
+
+`expense` and `income` endpoints take 3 params: `amount`, `description` and `category`, and insert these values into your budgeting spreadsheets.
+
+GET `data` retrieves the following values: `actual_income`, `actual_expense`, `monthly_balance` and `total_balance`.
 
 ## How It Works
 
@@ -14,6 +18,12 @@ This API endpoint takes 3 params: `amount`, `description` and `category`, and in
 
 * The newly-created spreadsheet is cloned from a template spreadsheet named 'budget-template'
  * *Spreadsheets will be created inside the same google-drive folder as `budget-template`.*
+ 
+## Disclaimer
+
+* Currently all rows/columns numbers are hardcoded to accustom the googlesheets budgeting template as shown below.
+
+* I intend to release V2 with database which allows these settings to be modified and stored.
 
 ## Resources
 
