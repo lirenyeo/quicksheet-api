@@ -46,7 +46,7 @@ class SpreadsheetService
     previous_spreadsheet = @session.spreadsheet_by_title(previous_month_spreadsheet_title(@current_month, @current_year))
 
     # Get previous balance from previous month spreadsheet
-    previous_balance = previous_spreadsheet.nil? ? "0" : previous_spreadsheet.worksheets[0][9, 9].delete("^0-9-.")
+    previous_balance = previous_spreadsheet.nil? ? "0" : previous_spreadsheet.worksheets[0][11, 5].delete("^0-9-.")
 
     # Update month, year and balance in the newly created spreadsheet
     worksheet_summary = @spreadsheet.worksheets[0]
